@@ -1,25 +1,40 @@
+import json
+from pathlib import Path
+
+CUR_DIR = Path(__file__).parent
+
+
 def extract_route(requisicao):
-    route = requisicao.split()[1].removeprefix('/')
-    print(f'rota extraída: {route}')
-    return route
+    return requisicao.split()[1].removeprefix('/')
 
-r = '''GET /img/logo-getit.png HTTP/1.1
-Host: 0.0.0.0:8080
-Connection: keep-alive
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36
-Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
-Referer: http://0.0.0.0:8080/
-Accept-Encoding: gzip, deflate
-Accept-Language: en-US,en;q=0.9,pt;q=0.8
-'''
-
-extract_route(r)
 
 def read_file(filepath):
     with open(filepath, 'rb') as arquivo:
         return arquivo.read()
 
 
-def load_data(arquivo):
-    
-    
+def load_data(nome_arquivo):
+    filepath = CUR_DIR / 'data' / nome_arquivo
+    with open(filepath, 'r', encoding='utf-8') as arquivo:
+        return json.load(arquivo)
+
+
+def load_template(nome_arquivo):
+    filepath = CUR_DIR / 'templates' / nome_arquivo
+    with open(filepath, 'r', encoding='utf-8') as arquivo:
+        return arquivo.read()
+
+
+def add_note(nota):
+    notas = load_data('notes.json')
+    notas.append(nota)
+    filepath = CUR_DIR / 'data' / 'notes.json'
+    with open(filepath, 'w', encoding='utf-8') as arquivo:
+        json.dump(notas, arquivo, ensure_ascii=False, indent=2)
+
+def build_response(body='', code=200, reason='OK', headers=''):
+    response = f'HTTP/1.1 {code} {reason}\n'
+    if headers:
+        response += f'{headers}\n'
+    response += '\n'
+    return response.encode() + body.encode()
