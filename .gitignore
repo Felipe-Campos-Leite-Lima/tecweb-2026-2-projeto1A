@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Banco de dados local
+*.db
+
+# Editor e sistema operacional
+.vscode/
+Thumbs.db
