@@ -1,5 +1,7 @@
 import json
 from pathlib import Path
+from database import Database, Note
+db = Database('banco')
 
 CUR_DIR = Path(__file__).parent
 
@@ -12,11 +14,8 @@ def read_file(filepath):
     with open(filepath, 'rb') as arquivo:
         return arquivo.read()
 
-
-def load_data(nome_arquivo):
-    filepath = CUR_DIR / 'data' / nome_arquivo
-    with open(filepath, 'r', encoding='utf-8') as arquivo:
-        return json.load(arquivo)
+def load_data():
+    return db.get_all()
 
 
 def load_template(nome_arquivo):
