@@ -210,3 +210,99 @@ body {
 .card-rotation-9  { transform: rotate(3deg); }
 .card-rotation-10 { transform: rotate(4deg); }
 .card-rotation-11 { transform: rotate(5deg); }
+
+.confirm-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  width: 492px;
+  margin: 48px auto;
+  padding: 24px;
+
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.40);
+}
+
+.confirm-titulo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c2c2c;
+}
+
+.confirm-card .card {
+  background-color: #fae890;
+}
+
+.confirm-aviso {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #4c4c4c;
+}
+
+.confirm-acoes {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.confirm-acoes .btn {
+  width: auto;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #2c2c2c;
+  text-align: center;
+}
+
+.btn-perigo { background-color: #d85858; }
+.btn-cancelar { background-color: #e6e6e6; }
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-acoes {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.card-acao {
+  display: flex;
+  color: #2c2c2c;
+  text-decoration: none;
+}
+
+.form-card-editar {
+  height: auto;
+  gap: 8px;
+}
+
+.form-titulo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #4c4c4c;
+  margin-bottom: 4px;
+}
+
+.form-acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.form-acoes .btn {
+  width: auto;
+  flex: 1;
+  text-decoration: none;
+  color: #2c2c2c;
+  text-align: center;
+  padding: 8px;
+}

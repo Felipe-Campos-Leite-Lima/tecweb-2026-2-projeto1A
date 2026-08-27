@@ -1,7 +1,7 @@
 import socket
 from pathlib import Path
 from utils import extract_route, read_file, build_response
-from views import index
+from views import index, confirmar_exclusao, excluir, editar, salvar_edicao
 
 CUR_DIR = Path(__file__).parent
 SERVER_HOST = 'localhost'
@@ -33,10 +33,18 @@ while True:
         response = build_response() + read_file(filepath)
     elif route == '':
         response = index(request)
+    elif route == 'delete' and request.startswith('POST'):
+        response = excluir(request)
+    elif route.startswith('delete/'):
+        response = confirmar_exclusao(route)
+    elif route == 'edit' and request.startswith('POST'):
+        response = salvar_edicao(request)
+    elif route.startswith('edit/'):
+        response = editar(route)
     else:
         response = build_response()
 
     client_connection.sendall(response)
     client_connection.close()
 
-server_socket.close()
+server_socket.close()   

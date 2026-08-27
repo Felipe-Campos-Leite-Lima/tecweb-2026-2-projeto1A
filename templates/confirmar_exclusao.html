@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apagar anotação</title>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Permanent+Marker&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/getit.css" />
+  </head>
+
+  <body>
+    <div class="appbar">
+      <img src="/img/logo-getit.png" class="logo" />
+      <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+    </div>
+
+    <main class="container">
+      <div class="confirm-card">
+        <h2 class="confirm-titulo">Apagar esta anotação?</h2>
+
+        <div class="card">
+          <h3 class="card-title">{title}</h3>
+          <div class="card-content">
+            <p>{details}</p>
+          </div>
+        </div>
+
+        <p class="confirm-aviso">Essa ação não pode ser desfeita.</p>
+
+        <div class="confirm-acoes">
+          <form method="post" action="/delete">
+            <input type="hidden" name="id" value="{id}" />
+            <button class="btn btn-perigo" type="submit">Sim, apagar</button>
+          </form>
+          <a class="btn btn-cancelar" href="/">Não, voltar</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
