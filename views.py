@@ -1,5 +1,5 @@
 from urllib.parse import unquote_plus
-from utils import load_data, load_template, add_note, build_response
+from utils import load_template, build_response
 from database import Database, Note
 db = Database('banco')
 
@@ -15,14 +15,14 @@ def index(request):
             chave, valor = chave_valor.split('=', 1)
             params[unquote_plus(chave)] = unquote_plus(valor)
 
-        add_note({'titulo': params['titulo'], 'detalhes': params['detalhes']})
+        db.add(Note(title=params['titulo'], content=params['detalhes']))
 
         return build_response(code=303, reason='See Other', headers='Location: /')
 
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=dados['titulo'], details=dados['detalhes'])
-        for dados in load_data()
+        note_template.format(title=nota.title, details=nota.content)
+        for nota in db.get_all()
     ]
     notes = '\n'.join(notes_li)
 
