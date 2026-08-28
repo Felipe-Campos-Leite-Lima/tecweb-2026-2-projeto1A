@@ -32,6 +32,13 @@ def index(request):
 
 
 def confirmar_exclusao(route):
+    try:
+        nota_id = int(route.split('/')[1])
+    except (ValueError, IndexError):
+        return nao_encontrado()
+    nota = db.get(nota_id)
+    if nota is None:
+        return nao_encontrado()
     nota_id = int(route.split('/')[1])
     nota = db.get(nota_id)
     if nota is None:
@@ -46,6 +53,13 @@ def excluir(request):
     return build_response(code=303, reason='See Other', headers='Location: /')
 
 def editar(route):
+    try:
+        nota_id = int(route.split('/')[1])
+    except (ValueError, IndexError):
+        return nao_encontrado()
+    nota = db.get(nota_id)
+    if nota is None:
+        return nao_encontrado()
     nota_id = int(route.split('/')[1])
     nota = db.get(nota_id)
     if nota is None:
@@ -63,3 +77,7 @@ def salvar_edicao(request):
     )
     db.update(nota)
     return build_response(code=303, reason='See Other', headers='Location: /')
+
+def nao_encontrado():
+    pagina = load_template('404.html')
+    return build_response(body=pagina, code=404, reason='Not Found')

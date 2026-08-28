@@ -1,7 +1,7 @@
 import socket
 from pathlib import Path
 from utils import extract_route, read_file, build_response
-from views import index, confirmar_exclusao, excluir, editar, salvar_edicao
+from views import index, confirmar_exclusao, excluir, editar, salvar_edicao, nao_encontrado
 
 CUR_DIR = Path(__file__).parent
 SERVER_HOST = 'localhost'
@@ -42,7 +42,7 @@ while True:
     elif route.startswith('edit/'):
         response = editar(route)
     else:
-        response = build_response()
+        response = nao_encontrado()
 
     client_connection.sendall(response)
     client_connection.close()
