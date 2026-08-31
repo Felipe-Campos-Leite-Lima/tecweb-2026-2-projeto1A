@@ -2,20 +2,13 @@
   <div class="card-header">
     <h3 class="card-title">{title}</h3>
     <div class="card-acoes">
-      <a class="card-acao" href="/edit/{id}" title="Editar anotação" aria-label="Editar anotação">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 20h4L18 10l-4-4L4 16v4z" />
-          <path d="M13.5 6.5l4 4" />
-        </svg>
-      </a>
-      <a class="card-acao" href="/delete/{id}" title="Apagar anotação" aria-label="Apagar anotação">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14" />
-          <path d="M10 11v6M14 11v6" />
-        </svg>
-      </a>
+      <form class="form-fav" method="post" action="/favorite">
+        <input type="hidden" name="id" value="{id}" />
+        <button class="card-fav {fav_classe}" type="submit"
+                title="Favoritar anotação">{fav_icone}</button>
+      </form>
+      <a class="card-acao" href="/edit/{id}" title="Editar anotação">✎</a>
+      <a class="card-acao" href="/delete/{id}" title="Apagar anotação">✕</a>
     </div>
   </div>
   <div class="card-content">

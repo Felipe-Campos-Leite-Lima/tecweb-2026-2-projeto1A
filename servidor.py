@@ -1,7 +1,8 @@
 import socket
 from pathlib import Path
 from utils import extract_route, read_file, build_response
-from views import index, confirmar_exclusao, excluir, editar, salvar_edicao, nao_encontrado
+from views import (index, create, favoritar, confirmar_exclusao, excluir,
+                   editar, salvar_edicao, nao_encontrado)
 
 CUR_DIR = Path(__file__).parent
 SERVER_HOST = 'localhost'
@@ -31,8 +32,12 @@ while True:
     filepath = CUR_DIR / route
     if filepath.is_file():
         response = build_response() + read_file(filepath)
+    elif route == '' and request.startswith('POST'):
+        response = create(request)
     elif route == '':
-        response = index(request)
+        response = index()
+    elif route == 'favorite' and request.startswith('POST'):
+        response = favoritar(request)
     elif route == 'delete' and request.startswith('POST'):
         response = excluir(request)
     elif route.startswith('delete/'):

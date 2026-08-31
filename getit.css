@@ -27,65 +27,13 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-/* Você pode usar o CSS comentado abaixo, se ajudar */
-/* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
-/* .btn {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-
-  overflow: hidden;
-
-  border-width: 0;
-  outline: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-
+.appbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px;
   background-color: #f7d736;
-
-  transition: background-color 0.3s;
-}
-
-.btn > * {
-  position: relative;
-}
-
-.btn:before {
-  content: "";
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  display: block;
-  width: 0;
-  padding-top: 0;
-
-  border-radius: 100%;
-
-  background-color: rgba(236, 240, 241, 0.3);
-
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.btn:active:before {
-  width: 120%;
-  padding-top: 120%;
-
-  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
-} */
-
-.appbar{
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 15px;
-    background-color: #f7d736;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .logo {
@@ -146,13 +94,12 @@ body {
 }
 
 .form-card {
-
   display: flex;
   flex-direction: column;
 
-  background-color: #ffffff; 
+  background-color: #ffffff;
   width: 492px;
-  height: 110px;
+  min-height: 110px;
   margin: 24px auto;
   padding: 10px;
 
@@ -161,7 +108,6 @@ body {
 }
 
 .form-card-title {
-
   border: none;
   outline: none;
   font-family: 'Roboto', sans-serif;
@@ -172,7 +118,6 @@ body {
 }
 
 .autoresize {
-
   border: none;
   outline: none;
   resize: none;
@@ -183,16 +128,15 @@ body {
 }
 
 .btn {
-
   border: none;
-  background-color: #f7d736; 
+  background-color: #f7d736;
   width: 492px;
   padding: 8px;
   font-weight: bold;
 
   border-radius: 2px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .card-color-1 { background-color: #ead3a7; }
@@ -271,6 +215,7 @@ body {
 
 .card-acoes {
   display: flex;
+  align-items: center;
   gap: 6px;
   flex-shrink: 0;
 }
@@ -279,6 +224,29 @@ body {
   display: flex;
   color: #2c2c2c;
   text-decoration: none;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.form-fav {
+  all: unset;
+  display: flex;
+}
+
+.card-fav {
+  all: unset;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 16px;
+  color: #2c2c2c;
+}
+
+.form-erro {
+  margin: 4px 2px 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #d32f2f;
 }
 
 .form-card-editar {
@@ -355,7 +323,7 @@ body {
 }
 
 .erro-texto {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;  
   font-size: 15px;
   line-height: 1.5;
   color: #4c4c4c;
