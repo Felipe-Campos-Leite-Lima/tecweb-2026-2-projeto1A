@@ -3,13 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editar anotação</title>
-    <link rel="stylesheet"
+    <title>Editar anotação — Get-it</title>
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
-      crossorigin="anonymous" />
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Permanent+Marker&display=swap"
-      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/getit.css" />
   </head>
 
@@ -29,15 +34,15 @@
           class="form-card-title"
           type="text"
           name="titulo"
-          placeholder="Título"
           value="{title}"
+          placeholder="Título"
         />
         <textarea
           class="autoresize"
           name="detalhes"
           placeholder="Digite o conteúdo..."
         >{details}</textarea>
-
+        {erro}
         <div class="form-acoes">
           <button class="btn" type="submit">Salvar</button>
           <a class="btn btn-cancelar" href="/">Cancelar</a>

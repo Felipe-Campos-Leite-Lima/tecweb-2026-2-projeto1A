@@ -15,18 +15,17 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&family=Permanent+Marker&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="getit.css" />
+    <link rel="stylesheet" href="/getit.css" />
   </head>
 
   <body>
     <div class="appbar">
-      <img src="img/logo-getit.png" class="logo" />
+      <img src="/img/logo-getit.png" class="logo" />
       <span class="subtitle">Como o Post-it, mas com outro verbo</span>
     </div>
 
     <main class="container">
-      <!-- method="post" foi removido apenas para o exemplo funcionar sem o servidor -->
-      <form class="form-card" method ="post">
+      <form class="form-card" method="post" action="/">
         <input
           class="form-card-title"
           type="text"
@@ -38,6 +37,7 @@
           name="detalhes"
           placeholder="Digite o conteúdo..."
         ></textarea>
+        {erro}
         <button class="btn" type="submit">Criar</button>
       </form>
 
@@ -46,6 +46,6 @@
       </div>
     </main>
 
-    <script type="text/javascript" src="getit.js"></script>
+    <script type="text/javascript" src="/getit.js"></script>
   </body>
 </html>
